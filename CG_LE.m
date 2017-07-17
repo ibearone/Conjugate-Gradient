@@ -15,7 +15,9 @@ function [x,norm_r]=CG_LE(A,B,tolerance)
 dim=length(A) %%%dimention of matrix
 
 %%% preparation
-x{1}=randi(10,dim,1)
+%x{1}=randi(10,dim,1)
+%x{1}=x{1}/norm(x{1})
+x{1}=zeros(dim,1)
 p{1}=B-A*x{1}
 r{1}=p{1}
 
@@ -28,6 +30,7 @@ while k<loops
     r{k+1}=r{k}-a(k)*A*p{k}
     b(k)=r{k+1}'*r{k+1}/(r{k}'*r{k})
     p{k+1}=r{k+1}+b(k)*p{k}
+    
     norm_r(k)=norm(r{k})
     %%%% Checking convergence
     if norm_r(k)>tolerance
