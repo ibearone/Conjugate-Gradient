@@ -1,9 +1,9 @@
 clc;clear;close all;
 %%% Setting Parameters%%%
-dim=500 %%%dimention of matrix
+dim=1000 %%%dimention of matrix
 
  
- sparse=[1 0.1 0.05 0.01] %%%Sparse density of Matrix
+ sparse=[1 0.01 0.01 0.001] %%%Sparse density of Matrix
  for n=1:4
 %%% Creating random target matrix
  A{n}= diag(randi(10,dim,1))
